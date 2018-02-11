@@ -13,9 +13,10 @@ void main()
 	vector<int> mainVector = { 4,53,3,17,6,2,6,9,345,97,234 };
 	int timeStart, timeEnd;
 
-	SortOperator(mainVector);
+	ShowVector(mainVector);
+	//SortOperator(mainVector);
 	SortAt(mainVector);
-	//SortIterator(mainVector);
+	SortIterator(mainVector);
 
 	_getch();
 }
@@ -58,8 +59,8 @@ void SortIterator(vector<int> vectorToSort)
 	int temp;
 
 	iter = vectorToSort.begin();
-
-	while (iter != vectorToSort.end())
+	
+	while ((iter+1) != vectorToSort.end())
 	{
 		if (*iter > *(iter + 1))
 		{
@@ -69,10 +70,6 @@ void SortIterator(vector<int> vectorToSort)
 		}
 		iter++;
 	}
-
-
-
-
 	ShowVector(vectorToSort);
 }
 
