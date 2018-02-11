@@ -50,26 +50,33 @@ void SortAt(vector<int> vectorToSort)
 				vectorToSort.at(j) = temp;
 			}
 
+	cout << "Sort by at()" << endl;
 	ShowVector(vectorToSort);
 }
 
 void SortIterator(vector<int> vectorToSort)
 {
-	vector<int>::iterator iter;
+	vector<int>::iterator iterFirst, iterNext;
 	int temp;
 
-	iter = vectorToSort.begin();
-	
-	while ((iter+1) != vectorToSort.end())
+	iterFirst = vectorToSort.begin();
+
+	while ((iterFirst+2) != vectorToSort.end())
 	{
-		if (*iter > *(iter + 1))
+		iterNext = iterFirst + 1;
+		do
 		{
-			temp = *iter;
-			*iter = *(iter + 1);
-			*(iter + 1) = temp;
-		}
-		iter++;
+			if (*iterFirst > *iterNext)
+			{
+				temp = *iterFirst;
+				*iterFirst = *iterNext;
+				*iterNext = temp;
+			}
+			iterNext++;
+		} while (iterNext != vectorToSort.end());
+		iterFirst++;
 	}
+	cout << "Sort by Iterator" << endl;
 	ShowVector(vectorToSort);
 }
 
