@@ -94,24 +94,20 @@ void ShowVector(vector<int> vectorToShow)
 void ReadFromTextFile()
 {
 	ifstream iFile;
-	char arrayToWrite[100];
+	const int rows(3), len(7);
+	char arrayToWrite[rows][len];
 
 	iFile.open("FileToRead.txt");
 	if (!iFile)
 		cout << "ERROR! FILE NOT FOUND" << endl;
 
-	while (!iFile.eof())
-	{
-		iFile.getline(arrayToWrite, sizeof(arrayToWrite));		
-	}
+	for (int i = 0; i < rows; i++)
+		iFile.getline(arrayToWrite[i], len);
+	
 	iFile.close();
 
-	for (int i = 0; i < 100; i++)
-	{
+	for (int i = 0; i < rows; i++)
 		cout << arrayToWrite[i] << endl;
-	}
-
-
 
 }
 
