@@ -7,18 +7,19 @@ void SortAt(vector<int> vectorToSort);
 void SortIterator(vector<int> vectorToSort);
 void ShowVector(vector<int> vectorToShow);
 void ReadFromTextFile();
+void InsetNumberInVector();
 //void TestFunc();
 
 void main()
 {
 	vector<int> mainVector = { 4,53,3,17,6,2,6,9,345,97,234 };
-	int timeStart, timeEnd;
 
 	//ShowVector(mainVector);
 	//SortOperator(mainVector);
 	//SortAt(mainVector);
 	//SortIterator(mainVector);
-	ReadFromTextFile();
+	//ReadFromTextFile();
+	InsetNumberInVector();
 
 	_getch();
 }
@@ -113,8 +114,40 @@ void ReadFromTextFile()
 	
 	vectorToInsert.insert(vectorToInsert.begin(), arrayToWrite[0], arrayToWrite[0] +20);
 	for (int i = 0; i < vectorToInsert.size(); i++)
-		cout << vectorToInsert[i];
+		cout << "vector: " << vectorToInsert[i] << endl;	
+}
+
+void InsetNumberInVector()
+{
+	vector<int> vectorToInsert;
+	int inputFromConsol = 1;
+	bool checkToExit = true;
 	
+	cout << "Enter number in vector.(For end insert 0.)\n";
+	
+	
+	while (true)
+	{
+		cin >> inputFromConsol;
+		if (inputFromConsol == 0)
+			break;
+
+		vectorToInsert.insert(vectorToInsert.end(), inputFromConsol);
+
+	}
+
+	cout << "Origin vector: \n";
+	for (int i = 0; i < vectorToInsert.size(); i++)		
+		cout << vectorToInsert[i] << "-";	
+
+	for (int i = vectorToInsert.size()-1; i > 0; i--)	
+		if (vectorToInsert[i] % 2 == 0)
+			vectorToInsert.erase(vectorToInsert.begin(), vectorToInsert.begin() + i);
+
+	cout << "\nVector without even numbers: \n";
+	for (int i = 0; i < vectorToInsert.size(); i++)		
+		cout << vectorToInsert[i] << "-";
+		
 }
 
 //void TestFunc()
