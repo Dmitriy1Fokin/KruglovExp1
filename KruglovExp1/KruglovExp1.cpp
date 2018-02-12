@@ -96,6 +96,7 @@ void ReadFromTextFile()
 	ifstream iFile;
 	const int rows(3), len(7);
 	char arrayToWrite[rows][len];
+	vector <char> vectorToInsert;
 
 	iFile.open("FileToRead.txt");
 	if (!iFile)
@@ -109,6 +110,11 @@ void ReadFromTextFile()
 	for (int i = 0; i < rows; i++)
 		cout << arrayToWrite[i] << endl;
 
+	
+	vectorToInsert.insert(vectorToInsert.begin(), arrayToWrite[0], arrayToWrite[0] +20);
+	for (int i = 0; i < vectorToInsert.size(); i++)
+		cout << vectorToInsert[i];
+	
 }
 
 //void TestFunc()

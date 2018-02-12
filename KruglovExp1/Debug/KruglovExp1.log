@@ -1,5 +1,6 @@
 ﻿  KruglovExp1.cpp
 d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(15): warning C4101: timeEnd: неиспользованная локальная переменная
 d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(15): warning C4101: timeStart: неиспользованная локальная переменная
+d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(115): warning C4018: <: несоответствие типов со знаком и без знака
   KruglovExp1.vcxproj -> D:\workspaceCpp\KruglovExp1\Debug\KruglovExp1.exe
   KruglovExp1.vcxproj -> D:\workspaceCpp\KruglovExp1\Debug\KruglovExp1.pdb (Partial PDB)
