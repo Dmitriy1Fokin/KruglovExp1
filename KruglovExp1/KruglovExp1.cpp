@@ -166,11 +166,9 @@ void InsetNumberInVector()
 		{
 			if (vectorToInsert[i] % 3 == 0)
 			{
-				vectorToInsert.insert(vectorToInsert.begin() + (i+1), 1);
+				vectorToInsert.insert(vectorToInsert.begin() + (i+1), 3, 1);
 				sizeOfVector = vectorToInsert.size();
-				cout << "test IF" << endl;
 			}
-			cout << "test FOR" << endl;
 		}
 
 		cout << "\nVector with 3 '1' after '3': \n";
