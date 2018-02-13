@@ -7,7 +7,6 @@ void SortAt(vector<int> vectorToSort);
 void SortIterator(vector<int> vectorToSort);
 void ShowVector(vector<int> vectorToShow);
 void ReadFromTextFile();
-int LenOfString(const char* p);
 void InsetNumberInVector();
 //void TestFunc();
 
@@ -19,8 +18,8 @@ void main()
 	//SortOperator(mainVector);
 	//SortAt(mainVector);
 	//SortIterator(mainVector);
-	ReadFromTextFile();
-	//InsetNumberInVector();
+	//ReadFromTextFile();
+	InsetNumberInVector();
 
 	_getch();
 }
@@ -113,30 +112,22 @@ void ReadFromTextFile()
 		cout << arrayToWrite[i] << endl;
 		
 	vectorToInsert.insert(vectorToInsert.begin(), arrayToWrite[0], arrayToWrite[0] + sizeof(arrayToWrite) - 1);
-	//vectorToInsert.assign(arrayToWrite, &arrayToWrite[sizeof(arrayToWrite) - 1]);
+	//vectorToInsert.assign(arrayToWrite, arrayToWrite[sizeof(arrayToWrite) - 1]);
 	
 	cout << "vector: \n";
 	for (int i = 0; i < vectorToInsert.size(); i++)
 		cout << vectorToInsert[i];	
 }
 
-int LenOfString(const char* p)
-{
-	int n = 0;
-	while (p[n])
-		++n;
-
-	return n;
-}
-
 void InsetNumberInVector()
 {
 	vector<int> vectorToInsert;
+	vector<int>::iterator delPointer;
+	int sizeOfVector;
 	int inputFromConsol = 1;
 	bool checkToExit = true;
 	
-	cout << "Enter number in vector.(For end insert 0.)\n";
-	
+	cout << "Enter number in vector.(For end insert 0.)\n";	
 	
 	while (true)
 	{
@@ -145,16 +136,28 @@ void InsetNumberInVector()
 			break;
 
 		vectorToInsert.insert(vectorToInsert.end(), inputFromConsol);
-
 	}
 
 	cout << "Origin vector: \n";
 	for (int i = 0; i < vectorToInsert.size(); i++)		
 		cout << vectorToInsert[i] << "-";	
 
-	for (int i = vectorToInsert.size()-1; i > 0; i--)	
-		if (vectorToInsert[i] % 2 == 0)
-			vectorToInsert.erase(vectorToInsert.begin(), vectorToInsert.begin() + i);
+	sizeOfVector = vectorToInsert.size();
+	delPointer = vectorToInsert.begin();
+	for (int i = 0; i < sizeOfVector; i++)
+	{
+		if (*delPointer % 2 == 0)
+		{
+			delPointer = vectorToInsert.erase(delPointer);
+			sizeOfVector = vectorToInsert.size();
+			--delPointer;
+			cout << "Test. in IF" << endl;
+		}
+		delPointer++;
+		cout << "Test. in For" << endl;
+	}
+		
+			
 
 	cout << "\nVector without even numbers: \n";
 	for (int i = 0; i < vectorToInsert.size(); i++)		
