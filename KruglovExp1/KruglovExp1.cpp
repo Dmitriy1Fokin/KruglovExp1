@@ -142,7 +142,7 @@ void InsetNumberInVector()
 	for (int i = 0; i < vectorToInsert.size(); i++)		
 		cout << vectorToInsert[i] << "-";	
 
-	sizeOfVector = vectorToInsert.size();
+	/*sizeOfVector = vectorToInsert.size();
 	delPointer = vectorToInsert.begin();
 	for (int i = 0; i < sizeOfVector; i++)
 	{
@@ -151,12 +151,21 @@ void InsetNumberInVector()
 			delPointer = vectorToInsert.erase(delPointer);
 			sizeOfVector = vectorToInsert.size();
 			--delPointer;
-			cout << "Test. in IF" << endl;
 		}
-		delPointer++;
-		cout << "Test. in For" << endl;
-	}
+		delPointer ++;
+	}*/
 		
+	sizeOfVector = vectorToInsert.size();
+	delPointer = vectorToInsert.begin();
+	for (int i = 0; i < sizeOfVector; i++)
+	{
+		if (vectorToInsert[i] % 2 == 0)
+		{
+			vectorToInsert.erase(vectorToInsert.begin() + i);
+			sizeOfVector = vectorToInsert.size();
+			--i;
+		}
+	}
 			
 
 	cout << "\nVector without even numbers: \n";
