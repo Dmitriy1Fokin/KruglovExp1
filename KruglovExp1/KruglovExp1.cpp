@@ -122,7 +122,6 @@ void ReadFromTextFile()
 void InsetNumberInVector()
 {
 	vector<int> vectorToInsert;
-	vector<int>::iterator delPointer;
 	int sizeOfVector;
 	int inputFromConsol = 1;
 	bool checkToExit = true;
@@ -141,36 +140,49 @@ void InsetNumberInVector()
 	cout << "Origin vector: \n";
 	for (int i = 0; i < vectorToInsert.size(); i++)		
 		cout << vectorToInsert[i] << "-";	
-
-	/*sizeOfVector = vectorToInsert.size();
-	delPointer = vectorToInsert.begin();
-	for (int i = 0; i < sizeOfVector; i++)
-	{
-		if (*delPointer % 2 == 0)
-		{
-			delPointer = vectorToInsert.erase(delPointer);
-			sizeOfVector = vectorToInsert.size();
-			--delPointer;
-		}
-		delPointer ++;
-	}*/
 		
-	sizeOfVector = vectorToInsert.size();
-	delPointer = vectorToInsert.begin();
-	for (int i = 0; i < sizeOfVector; i++)
+	if (vectorToInsert.back() == 1)
 	{
-		if (vectorToInsert[i] % 2 == 0)
+		sizeOfVector = vectorToInsert.size();
+		for (int i = 0; i < sizeOfVector; i++)
 		{
-			vectorToInsert.erase(vectorToInsert.begin() + i);
-			sizeOfVector = vectorToInsert.size();
-			--i;
+			if (vectorToInsert[i] % 2 == 0)
+			{
+				vectorToInsert.erase(vectorToInsert.begin() + i);
+				sizeOfVector = vectorToInsert.size();
+				--i;
+			}
 		}
-	}
-			
 
-	cout << "\nVector without even numbers: \n";
-	for (int i = 0; i < vectorToInsert.size(); i++)		
-		cout << vectorToInsert[i] << "-";
+		cout << "\nVector without even numbers: \n";
+		for (int i = 0; i < vectorToInsert.size(); i++)
+			cout << vectorToInsert[i] << "-";
+	}
+
+	if (vectorToInsert.back() == 2)
+	{
+		sizeOfVector = vectorToInsert.size();
+		for (int i = 0; i < sizeOfVector; i++)
+		{
+			if (vectorToInsert[i] % 3 == 0)
+			{
+				vectorToInsert.insert(vectorToInsert.begin() + (i+1), 1);
+				sizeOfVector = vectorToInsert.size();
+				cout << "test IF" << endl;
+			}
+			cout << "test FOR" << endl;
+		}
+
+		cout << "\nVector with 3 '1' after '3': \n";
+		for (int i = 0; i < vectorToInsert.size(); i++)
+			cout << vectorToInsert[i] << "-";
+	}
+
+		
+
+	
+
+
 		
 }
 

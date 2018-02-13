@@ -1,6 +1,7 @@
 ﻿  KruglovExp1.cpp
 d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(118): warning C4018: <: несоответствие типов со знаком и без знака
-d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(142): warning C4018: <: несоответствие типов со знаком и без знака
-d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(172): warning C4018: <: несоответствие типов со знаком и без знака
+d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(141): warning C4018: <: несоответствие типов со знаком и без знака
+d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(158): warning C4018: <: несоответствие типов со знаком и без знака
+d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(177): warning C4018: <: несоответствие типов со знаком и без знака
   KruglovExp1.vcxproj -> D:\workspaceCpp\KruglovExp1\Debug\KruglovExp1.exe
   KruglovExp1.vcxproj -> D:\workspaceCpp\KruglovExp1\Debug\KruglovExp1.pdb (Partial PDB)
