@@ -7,6 +7,7 @@ void SortAt(vector<int> vectorToSort);
 void SortIterator(vector<int> vectorToSort);
 void ShowVector(vector<int> vectorToShow);
 void ReadFromTextFile();
+int LenOfString(const char* p);
 void InsetNumberInVector();
 //void TestFunc();
 
@@ -18,8 +19,8 @@ void main()
 	//SortOperator(mainVector);
 	//SortAt(mainVector);
 	//SortIterator(mainVector);
-	//ReadFromTextFile();
-	InsetNumberInVector();
+	ReadFromTextFile();
+	//InsetNumberInVector();
 
 	_getch();
 }
@@ -110,11 +111,22 @@ void ReadFromTextFile()
 
 	for (int i = 0; i < rows; i++)
 		cout << arrayToWrite[i] << endl;
-
+		
+	vectorToInsert.insert(vectorToInsert.begin(), arrayToWrite[0], arrayToWrite[0] + sizeof(arrayToWrite) - 1);
+	//vectorToInsert.assign(arrayToWrite, &arrayToWrite[sizeof(arrayToWrite) - 1]);
 	
-	vectorToInsert.insert(vectorToInsert.begin(), arrayToWrite[0], arrayToWrite[0] +20);
+	cout << "vector: \n";
 	for (int i = 0; i < vectorToInsert.size(); i++)
-		cout << "vector: " << vectorToInsert[i] << endl;	
+		cout << vectorToInsert[i];	
+}
+
+int LenOfString(const char* p)
+{
+	int n = 0;
+	while (p[n])
+		++n;
+
+	return n;
 }
 
 void InsetNumberInVector()
