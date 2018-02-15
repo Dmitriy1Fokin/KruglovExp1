@@ -8,18 +8,25 @@ void SortIterator(vector<int> vectorToSort);
 void ShowVector(vector<int> vectorToShow);
 void ReadFromTextFile();
 void InsetNumberInVector();
+double FillRandom(double* arrayR, int size);
 //void TestFunc();
 
 void main()
 {
 	vector<int> mainVector = { 4,53,3,17,6,2,6,9,345,97,234 };
-
+	double randomArray[5];
 	//ShowVector(mainVector);
 	//SortOperator(mainVector);
 	//SortAt(mainVector);
 	//SortIterator(mainVector);
 	//ReadFromTextFile();
-	InsetNumberInVector();
+	//InsetNumberInVector();
+	FillRandom(randomArray, 5);
+
+	for (int i = 0; i < 5; i++)
+	{
+		cout << randomArray[i] << endl;
+	}
 
 	_getch();
 }
@@ -174,14 +181,19 @@ void InsetNumberInVector()
 		cout << "\nVector with 3 '1' after '3': \n";
 		for (int i = 0; i < vectorToInsert.size(); i++)
 			cout << vectorToInsert[i] << "-";
+	}		
+}
+
+double FillRandom(double* arrayR, int size)
+{
+	srand(time(0));
+
+	for (int i = 0 ; i < size; i++)
+	{
+		arrayR[i] = 0.0001 * ((rand() % 20000) - 10000);
 	}
 
-		
-
-	
-
-
-		
+	return *arrayR;
 }
 
 //void TestFunc()
