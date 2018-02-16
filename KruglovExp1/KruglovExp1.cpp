@@ -2,16 +2,34 @@
 
 using namespace std;
 
-void SortOperator(vector<int> whatToSort);
-void SortOperator(vector<double> vectorToSort);
+template<class T> void SortOperator(vector<T> vectorToSort)
+{
+	T temp;
+
+	for (int i = 0; i < (int)vectorToSort.size(); i++)
+		for (int j = i + 1; j < (int)vectorToSort.size(); j++)
+			if (vectorToSort[i] > vectorToSort[j])
+			{
+				temp = vectorToSort[i];
+				vectorToSort[i] = vectorToSort[j];
+				vectorToSort[j] = temp;
+			}
+
+	cout << "Sort by operator[]:" << endl;
+	ShowVector(vectorToSort);
+}
+template<class T> void ShowVector(vector<T> vectorToShow)
+{
+	for (int i = 0; i < (int)vectorToShow.size(); i++)
+		cout << i << ".:\t " << vectorToShow[i] << endl;
+}
 void SortAt(vector<int> vectorToSort);
 void SortIterator(vector<int> vectorToSort);
-void ShowVector(vector<int> vectorToShow);
-void ShowVector(vector<double> vectorToShow);
 void ReadFromTextFile();
 void InsetNumberInVector();
+void DeleteEvenNumbers(vector<int> vectorWithEven);
+void InsertOneAfterThree(vector<int> vectorWithThree);
 void FillRandom(double* arrayR, int size);
-//void TestFunc();
 
 void main()
 {
@@ -23,9 +41,9 @@ void main()
 	//SortAt(mainVector);
 	//SortIterator(mainVector);
 	//ReadFromTextFile();
-	//InsetNumberInVector();
+	InsetNumberInVector();
 	
-	FillRandom(randomArray, 5);
+	/*FillRandom(randomArray, 5);
 	vector5.assign(randomArray, &randomArray[5]);
 	ShowVector(vector5);
 	SortOperator(vector5);
@@ -48,45 +66,10 @@ void main()
 	FillRandom(randomArray, 100);
 	vector100.assign(randomArray, &randomArray[100]);
 	ShowVector(vector100);
-	SortOperator(vector100);
+	SortOperator(vector100);*/
 
 	_getch();
 }
-
-void SortOperator(vector<int> vectorToSort)
-{
-	int temp;
-
-	for (int i = 0; i < (int)vectorToSort.size(); i++)
-		for (int j = i + 1; j < (int)vectorToSort.size(); j++)
-			if (vectorToSort[i] > vectorToSort[j])
-			{
-				temp = vectorToSort[i];
-				vectorToSort[i] = vectorToSort[j];
-				vectorToSort[j] = temp;
-			}
-
-	cout << "Sort by operator[]:" << endl;
-	ShowVector(vectorToSort);
-}
-
-void SortOperator(vector<double> vectorToSort)
-{
-	double temp;
-
-	for (int i = 0; i < (int)vectorToSort.size(); i++)
-		for (int j = i + 1; j < (int)vectorToSort.size(); j++)
-			if (vectorToSort[i] > vectorToSort[j])
-			{
-				temp = vectorToSort[i];
-				vectorToSort[i] = vectorToSort[j];
-				vectorToSort[j] = temp;
-			}
-
-	cout << "Sort by operator[]:" << endl;
-	ShowVector(vectorToSort);
-}
-
 
 void SortAt(vector<int> vectorToSort)
 {
@@ -133,18 +116,6 @@ void SortIterator(vector<int> vectorToSort)
 	ShowVector(vectorToSort);
 }
 
-void ShowVector(vector<int> vectorToShow)
-{
-	for (int i = 0; i < (int)vectorToShow.size(); i++)
-		cout << i << ".:\t " << vectorToShow[i] << endl;
-}
-
-void ShowVector(vector<double> vectorToShow)
-{
-	for (int i = 0; i < (int)vectorToShow.size(); i++)
-		cout << i << ".:\t " << vectorToShow[i] << endl;
-}
-
 void ReadFromTextFile()
 {
 	ifstream iFile;
@@ -165,7 +136,7 @@ void ReadFromTextFile()
 		cout << arrayToWrite[i] << endl;
 		
 	vectorToInsert.insert(vectorToInsert.begin(), arrayToWrite[0], arrayToWrite[0] + sizeof(arrayToWrite) - 1);
-	//vectorToInsert.assign(arrayToWrite, arrayToWrite[sizeof(arrayToWrite) - 1]);
+	//vectorToInsert.assign(arrayToWrite, &arrayToWrite[3]);
 	
 	cout << "vector: \n";
 	for (int i = 0; i < vectorToInsert.size(); i++)
@@ -175,11 +146,10 @@ void ReadFromTextFile()
 void InsetNumberInVector()
 {
 	vector<int> vectorToInsert;
-	int sizeOfVector;
 	int inputFromConsol = 1;
 	bool checkToExit = true;
 	
-	cout << "Enter number in vector.(For end insert 0.)\n";	
+	cout << "Enter number in vector.(For end - insert 0.)\n";	
 	
 	while (true)
 	{
@@ -191,43 +161,50 @@ void InsetNumberInVector()
 	}
 
 	cout << "Origin vector: \n";
-	for (int i = 0; i < vectorToInsert.size(); i++)		
-		cout << vectorToInsert[i] << "-";	
+	ShowVector(vectorToInsert);
 		
 	if (vectorToInsert.back() == 1)
-	{
-		sizeOfVector = vectorToInsert.size();
-		for (int i = 0; i < sizeOfVector; i++)
-		{
-			if (vectorToInsert[i] % 2 == 0)
-			{
-				vectorToInsert.erase(vectorToInsert.begin() + i);
-				sizeOfVector = vectorToInsert.size();
-				--i;
-			}
-		}
-
-		cout << "\nVector without even numbers: \n";
-		for (int i = 0; i < vectorToInsert.size(); i++)
-			cout << vectorToInsert[i] << "-";
-	}
+		DeleteEvenNumbers(vectorToInsert);
 
 	if (vectorToInsert.back() == 2)
-	{
-		sizeOfVector = vectorToInsert.size();
-		for (int i = 0; i < sizeOfVector; i++)
-		{
-			if (vectorToInsert[i] % 3 == 0)
-			{
-				vectorToInsert.insert(vectorToInsert.begin() + (i+1), 3, 1);
-				sizeOfVector = vectorToInsert.size();
-			}
-		}
+		InsertOneAfterThree(vectorToInsert);
+}
 
-		cout << "\nVector with 3 '1' after '3': \n";
-		for (int i = 0; i < vectorToInsert.size(); i++)
-			cout << vectorToInsert[i] << "-";
-	}		
+void DeleteEvenNumbers(vector<int> vectorWithEven)
+{
+	int sizeOfVector;
+
+	sizeOfVector = vectorWithEven.size();
+	for (int i = 0; i < sizeOfVector; i++)
+	{
+		if (vectorWithEven[i] % 2 == 0)
+		{
+			vectorWithEven.erase(vectorWithEven.begin() + i);
+			sizeOfVector = vectorWithEven.size();
+			--i;
+		}
+	}
+
+	cout << "\nVector without even numbers: \n";
+	ShowVector(vectorWithEven);
+}
+
+void InsertOneAfterThree(vector<int> vectorWithThree)
+{
+	int sizeOfVector;
+	
+	sizeOfVector = vectorWithThree.size();
+	for (int i = 0; i < sizeOfVector; i++)
+	{
+		if (vectorWithThree[i] % 3 == 0)
+		{
+			vectorWithThree.insert(vectorWithThree.begin() + (i + 1), 3, 1);
+			sizeOfVector = vectorWithThree.size();
+		}
+	}
+
+	cout << "\nVector with 3 '1' after '3': \n";
+	ShowVector(vectorWithThree);
 }
 
 void FillRandom(double* arrayR, int size)
@@ -237,12 +214,3 @@ void FillRandom(double* arrayR, int size)
 	for (int i = 0 ; i < size; i++)
 		arrayR[i] = 0.0001 * ((rand() % 20000) - 10000);
 }
-
-//void TestFunc()
-//{
-//	long testArray[2000000];
-//	for  (long i = 0; i < 2000000; i++)
-//	{
-//		testArray[i] = i;
-//	}
-//}
