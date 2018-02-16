@@ -1,4 +1,5 @@
 ﻿  KruglovExp1.cpp
+d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(42): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
 d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(38): warning C4101: randomArray: неиспользованная локальная переменная
-d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(142): warning C4018: <: несоответствие типов со знаком и без знака
-d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(212): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(162): warning C4018: <: несоответствие типов со знаком и без знака
+d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(232): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных

@@ -33,15 +33,35 @@ void FillRandom(double* arrayR, int size);
 
 void main()
 {
-	vector<int> mainVector = { 4,53,3,17,6,2,6,9,345,97,234 };
+	vector<int> mainVector /*= { 4,53,3,17,6,2,6,9,345,97,234 }*/;
 	vector <double> vector5, vector10, vector25, vector50, vector100;
 	double randomArray[100];
+	
+	for (int i = 0; i < 500; i++)
+	{
+		srand(time(0));
+		mainVector.push_back(rand());
+	}
+	
 	//ShowVector(mainVector);
+
+	//clock_t timeStart = clock();
 	//SortOperator(mainVector);
+	//clock_t timeEnd = clock();
+	//cout << "время выполнения: " << timeEnd - timeStart;
+
+	//clock_t timeStart = clock();
 	//SortAt(mainVector);
+	//clock_t timeEnd = clock();
+	//cout << "время выполнения: " << timeEnd - timeStart;
+	
+	//clock_t timeStart = clock();
 	//SortIterator(mainVector);
+	//clock_t timeEnd = clock();
+	//cout << "время выполнения: " << timeEnd - timeStart;
+
 	//ReadFromTextFile();
-	InsetNumberInVector();
+	//InsetNumberInVector();
 	
 	/*FillRandom(randomArray, 5);
 	vector5.assign(randomArray, &randomArray[5]);
