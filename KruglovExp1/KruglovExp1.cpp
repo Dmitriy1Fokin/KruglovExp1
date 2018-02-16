@@ -3,30 +3,52 @@
 using namespace std;
 
 void SortOperator(vector<int> whatToSort);
+void SortOperator(vector<double> vectorToSort);
 void SortAt(vector<int> vectorToSort);
 void SortIterator(vector<int> vectorToSort);
 void ShowVector(vector<int> vectorToShow);
+void ShowVector(vector<double> vectorToShow);
 void ReadFromTextFile();
 void InsetNumberInVector();
-double FillRandom(double* arrayR, int size);
+void FillRandom(double* arrayR, int size);
 //void TestFunc();
 
 void main()
 {
 	vector<int> mainVector = { 4,53,3,17,6,2,6,9,345,97,234 };
-	double randomArray[5];
+	vector <double> vector5, vector10, vector25, vector50, vector100;
+	double randomArray[100];
 	//ShowVector(mainVector);
 	//SortOperator(mainVector);
 	//SortAt(mainVector);
 	//SortIterator(mainVector);
 	//ReadFromTextFile();
 	//InsetNumberInVector();
+	
 	FillRandom(randomArray, 5);
+	vector5.assign(randomArray, &randomArray[5]);
+	ShowVector(vector5);
+	SortOperator(vector5);
+	
+	FillRandom(randomArray, 10);
+	vector10.assign(randomArray, &randomArray[10]);
+	ShowVector(vector10);
+	SortOperator(vector10);
 
-	for (int i = 0; i < 5; i++)
-	{
-		cout << randomArray[i] << endl;
-	}
+	FillRandom(randomArray, 25);
+	vector25.assign(randomArray, &randomArray[25]);
+	ShowVector(vector25);
+	SortOperator(vector25);
+
+	FillRandom(randomArray, 50);
+	vector50.assign(randomArray, &randomArray[50]);
+	ShowVector(vector50);
+	SortOperator(vector50);
+
+	FillRandom(randomArray, 100);
+	vector100.assign(randomArray, &randomArray[100]);
+	ShowVector(vector100);
+	SortOperator(vector100);
 
 	_getch();
 }
@@ -44,9 +66,27 @@ void SortOperator(vector<int> vectorToSort)
 				vectorToSort[j] = temp;
 			}
 
-	cout << "Sort by aoperator[]:" << endl;
+	cout << "Sort by operator[]:" << endl;
 	ShowVector(vectorToSort);
 }
+
+void SortOperator(vector<double> vectorToSort)
+{
+	double temp;
+
+	for (int i = 0; i < (int)vectorToSort.size(); i++)
+		for (int j = i + 1; j < (int)vectorToSort.size(); j++)
+			if (vectorToSort[i] > vectorToSort[j])
+			{
+				temp = vectorToSort[i];
+				vectorToSort[i] = vectorToSort[j];
+				vectorToSort[j] = temp;
+			}
+
+	cout << "Sort by operator[]:" << endl;
+	ShowVector(vectorToSort);
+}
+
 
 void SortAt(vector<int> vectorToSort)
 {
@@ -94,6 +134,12 @@ void SortIterator(vector<int> vectorToSort)
 }
 
 void ShowVector(vector<int> vectorToShow)
+{
+	for (int i = 0; i < (int)vectorToShow.size(); i++)
+		cout << i << ".:\t " << vectorToShow[i] << endl;
+}
+
+void ShowVector(vector<double> vectorToShow)
 {
 	for (int i = 0; i < (int)vectorToShow.size(); i++)
 		cout << i << ".:\t " << vectorToShow[i] << endl;
@@ -184,16 +230,12 @@ void InsetNumberInVector()
 	}		
 }
 
-double FillRandom(double* arrayR, int size)
+void FillRandom(double* arrayR, int size)
 {
 	srand(time(0));
 
 	for (int i = 0 ; i < size; i++)
-	{
 		arrayR[i] = 0.0001 * ((rand() % 20000) - 10000);
-	}
-
-	return *arrayR;
 }
 
 //void TestFunc()

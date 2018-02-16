@@ -1,8 +1,8 @@
 ﻿  KruglovExp1.cpp
-d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(125): warning C4018: <: несоответствие типов со знаком и без знака
-d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(148): warning C4018: <: несоответствие типов со знаком и без знака
-d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(165): warning C4018: <: несоответствие типов со знаком и без знака
-d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(182): warning C4018: <: несоответствие типов со знаком и без знака
-d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(189): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(171): warning C4018: <: несоответствие типов со знаком и без знака
+d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(194): warning C4018: <: несоответствие типов со знаком и без знака
+d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(211): warning C4018: <: несоответствие типов со знаком и без знака
+d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(228): warning C4018: <: несоответствие типов со знаком и без знака
+d:\workspacecpp\kruglovexp1\kruglovexp1\kruglovexp1.cpp(235): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
   KruglovExp1.vcxproj -> D:\workspaceCpp\KruglovExp1\Debug\KruglovExp1.exe
   KruglovExp1.vcxproj -> D:\workspaceCpp\KruglovExp1\Debug\KruglovExp1.pdb (Partial PDB)
